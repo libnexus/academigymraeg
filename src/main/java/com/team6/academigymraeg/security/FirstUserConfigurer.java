@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 public class FirstUserConfigurer {
     private final UserRepository userRepository;
 
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public FirstUserConfigurer(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public FirstUserConfigurer(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @PostConstruct
