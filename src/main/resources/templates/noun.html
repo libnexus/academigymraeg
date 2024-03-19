@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="english">
+<head>
+    <meta charset="UTF-8">
+    <title>Academi Gymraeg | Noun List</title>
+</head>
+<body>
+<h1>Noun List</h1>
+
+<form th:action="@{/noun}" method="GET" th:object="${nouns}">
+    <th:block th:if="${nouns.size == 0}">
+        <p>There are no nouns saved in the system</p>
+    </th:block>
+
+    <button type="submit" th:name="add" name="add">Add new noun</button>
+
+    <th:block  th:if="${nouns.size gt 0}">
+        <table>
+            <tr>
+                <th>English</th>
+                <th>Welsh</th>
+                <th>Gender of welsh noun</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="noun : ${nouns}">
+                <td><span th:text="${noun.english}" /></td>
+                <td><span th:text="${noun.welsh}" /></td>
+                <td><span th:text="${noun.gender}" /></td>
+                <td><button type="submit" th:name="edit" name="edit" th:value="${noun.nounID}">Edit</button></td>
+                <td><button type="submit" th:name="delete" name="delete" th:value="${noun.nounID}">Delete</button></td>
+            </tr>
+        </table>
+    </th:block>
+</form>
+
+<form th:action="@{/noun}" method="GET" th:object="${noun}">
+    <th:block>
+        <p>
+            <label for="english">Enter English noun:
+            <input th:value="english" required></label>
+        </p>
+        <p>
+            <label for="welsh">Enter Welsh translation:
+            <input th:value="welsh" required></label>
+        </p>
+        <select name="gender">
+            <option th:each="gender : ${T(com.team6.academigymraeg.model.Gender).values()}" th:value="${gender}">
+            </option>
+        </select>
+        <button type="submit" th:name="add" name="add">Save new noun</button>
+    </th:block>
+</form>
+
+</body>
+</html>

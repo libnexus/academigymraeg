@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Academi Gymraeg | Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<div th:if="${param.error ne null}" style="color:red">
+    The login details were not recognised, try again.
+</div>
+<form th:action="@{/logincheck}" method="POST">
+    <p>
+        <label for="username">Enter username:
+            <input name="username"/></label>
+    </p>
+    <p>
+        <label for="password">Enter password:
+            <input name="password" type="password"/></label>
+    </p>
+    <p>
+        <button type="submit">Log In</button>
+    </p>
+
+</form>
+</body>
+</html>
