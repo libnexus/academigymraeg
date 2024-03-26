@@ -36,12 +36,12 @@ public class SecurityConfiguration {
     SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.formLogin((form) -> {
             form.loginPage("/login")
-                    .defaultSuccessUrl("/home", true)
                     .loginProcessingUrl("/logincheck")
+                    .defaultSuccessUrl("/index", true)
                     .failureUrl("/login?error=1");
         }).logout((logout) -> {
             logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"));
-        }).userDetailsService(userDetailsService());
+        }).userDetailsService(userDetails());
 
         return httpSecurity.build();
     }

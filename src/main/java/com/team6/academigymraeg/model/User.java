@@ -46,7 +46,7 @@ public class  User implements UserDetails {
     }
 
     public String getPassword() {
-        return null;
+        return passwordHash;
     }
 
     public String getUsername() {
