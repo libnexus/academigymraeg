@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="english">
+<head>
+    <meta charset="UTF-8">
+    <title>Academi Gymraeg | Edit Noun</title>
+</head>
+<body>
+<h1>Edit Noun</h1>
+
+<form th:action="@{/nounEdit}" method="GET">
+    <th:block>
+        <p>
+            <label >Enter English noun:
+                <input th:value="${english}" name="english" required></label>
+        </p>
+        <p>
+            <label >Enter Welsh translation:
+                <input th:value="${welsh}" name="welsh" required></label>
+        </p>
+        <select name="gender">
+            <option th:each="gender : ${T(com.team6.academigymraeg.model.Gender).values()}" th:value="${gender}" th:text="${gender}"></option>
+        </select>
+        <button type="submit">Submit</button>
+    </th:block>
+</form>
+
+</body>
+</html>

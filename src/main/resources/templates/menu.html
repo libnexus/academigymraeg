@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+    <h1>Main Menu</h1>
+    <form th:action="@{/menu}" method="POST">
+        <p><button th:href="@{/test}" type="button">Take a Test</button></p>
+        <p><button th:href="@{/noun}" type="button">Nouns</button></p>
+
+    </form>
+</body>
+</html>
