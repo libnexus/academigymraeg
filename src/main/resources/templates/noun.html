@@ -12,8 +12,6 @@
         <p>There are no nouns saved in the system</p>
     </th:block>
 
-    <button type="submit" th:name="add" name="add">Add new noun</button>
-
     <th:block  th:if="${nouns.size gt 0}">
         <table>
             <tr>
@@ -34,19 +32,18 @@
     </th:block>
 </form>
 
-<form th:action="@{/noun}" method="GET" th:object="${noun}">
+<form th:action="@{/noun}" method="GET">
     <th:block>
         <p>
-            <label for="english">Enter English noun:
-            <input th:value="english" required></label>
+            <label >Enter English noun:
+            <input th:value="${english}" name="english" required></label>
         </p>
         <p>
-            <label for="welsh">Enter Welsh translation:
-            <input th:value="welsh" required></label>
+            <label >Enter Welsh translation:
+            <input th:value="${welsh}" name="welsh" required></label>
         </p>
         <select name="gender">
-            <option th:each="gender : ${T(com.team6.academigymraeg.model.Gender).values()}" th:value="${gender}">
-            </option>
+            <option th:each="gender : ${T(com.team6.academigymraeg.model.Gender).values()}" th:value="${gender}" th:text="${gender}"></option>
         </select>
         <button type="submit" th:name="add" name="add">Save new noun</button>
     </th:block>

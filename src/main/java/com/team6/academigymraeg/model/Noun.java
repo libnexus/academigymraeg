@@ -38,13 +38,11 @@ public class Noun {
      * noun ID that is trying to be used for the noun, if the purpose is to save the noun object to the
      * repository, is unique and doesn't identify another entry of a noun instance which already exists.
      *
-     * @param nounID the noun's primary key ID for the repository
      * @param english the English equivalent of the meaning of the noun
      * @param welsh the Welsh equivalent of the meaning of the noun
      * @param gender the gender of the noun (as it is used in Welsh)
      */
-    public Noun(@NotNull int nounID, @NotNull String english, @NotNull String welsh, @NotNull Gender gender) {
-        this.nounID = nounID;
+    public Noun(@NotNull String english, @NotNull String welsh, @NotNull Gender gender) {
         this.english = english;
         this.welsh = welsh;
         this.gender = gender;
